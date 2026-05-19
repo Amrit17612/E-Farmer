@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - eFarmar Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --green-dark: #2E7D32;
+            --green-mid: #388E3C;
+            --green-light: #66BB6A;
+            --white: #FFFFFF;
+            --grey-light: #F5F5F5;
+            --text-dark: #1A2E1A;
+            --sidebar-width: 260px;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--grey-light); display: flex; min-height: 100vh; }
+
+        /* Sidebar Mockup */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--green-dark) 0%, #1B5E20 100%);
+            color: rgba(255,255,255,0.8);
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar-logo { padding: 0 2rem 3rem; color: white; font-size: 1.5rem; font-weight: 800; }
+        .nav-item { padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; transition: 0.3s; }
+        .nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.1); color: white; border-left: 4px solid var(--green-light); }
+        .nav-item i { font-size: 1.2rem; }
+
+        /* Main Content */
+        .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 3rem; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+        .user-profile { display: flex; align-items: center; gap: 1rem; }
+        .user-profile img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--green-light); }
+
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+        .stat-card h4 { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .stat-card .value { font-size: 1.8rem; font-weight: 700; color: var(--green-dark); }
+        .stat-card .trend { font-size: 0.8rem; margin-top: 0.5rem; color: var(--green-light); }
+
+        /* Charts Area Mockup */
+        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+        .chart-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            height: 350px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .placeholder-chart {
+            width: 100%; height: 80%; margin-top: 1rem;
+            background: #f9f9f9; border-radius: 12px;
+            display: flex; justify-content: center; align-items: center;
+            color: #ddd; font-style: italic; border: 2px dashed #eee;
+        }
+
+        @media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .content-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">eFarmar</div>
+        <div class="nav-item active"><i class="bi bi-grid-1x2"></i> Dashboard</div>
+        <div class="nav-item"><i class="bi bi-flower2"></i> My Crops</div>
+        <div class="nav-item"><i class="bi bi-graph-up-arrow"></i> Market Prices</div>
+        <div class="nav-item"><i class="bi bi-shop"></i> Sell Crops</div>
+        <div class="nav-item"><i class="bi bi-bank"></i> Govt Schemes</div>
+        <div class="nav-item"><i class="bi bi-cloud-sun"></i> Weather</div>
+    </div>
+
+    <div class="main">
+        <header>
+            <div>
+                <h1 style="font-size: 1.8rem;">Welcome back, Rajesh! 👋</h1>
+                <p style="color: #666;">Here's what's happening with your farm today.</p>
+            </div>
+            <div class="user-profile">
+                <div style="text-align: right;">
+                    <div style="font-weight: 600;">Rajesh Kumar</div>
+                    <div style="font-size: 0.8rem; color: #888;">Ludhiana, Punjab</div>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Rajesh+Kumar&background=2E7D32&color=fff" alt="User">
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>Total Crops</h4>
+                <div class="value">12</div>
+                <div class="trend"><i class="bi bi-arrow-up"></i> 2 new this month</div>
+            </div>
+            <div class="stat-card">
+                <h4>Active Listings</h4>
+                <div class="value">08</div>
+                <div class="trend">Ready for sale</div>
+            </div>
+            <div class="stat-card">
+                <h4>Total Earnings</h4>
+                <div class="value">₹1,45,000</div>
+                <div class="trend" style="color: var(--green-dark);">Last 30 days</div>
+            </div>
+            <div class="stat-card">
+                <h4>Farm Health</h4>
+                <div class="value" style="color: #66BB6A;">Excellent</div>
+                <div class="trend">Based on weather</div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="chart-box">
+                <h3 style="font-size: 1.1rem; display: flex; justify-content: space-between;">
+                    Market Price Trends
+                    <span style="font-size: 0.8rem; color: #888; font-weight: 400;">Selected: Wheat (Punjab)</span>
+                </h3>
+                <div class="placeholder-chart">
+                    [ Interactive Line Chart Visualization ]
+                </div>
+            </div>
+            <div class="chart-box">
+                <h3 style="font-size: 1.1rem;">Crop Distribution</h3>
+                <div class="placeholder-chart" style="border-radius: 50%; aspect-ratio: 1; height: auto; width: 200px; margin: 2rem auto;">
+                    [ Pie Chart ]
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

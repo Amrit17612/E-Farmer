@@ -1,11 +1,11 @@
-# eFarmar - Agriculture Web Application
+# E-Farmer - Agriculture Web Application
 
-A modern agriculture web application built with Laravel MVC framework.
+A smart agriculture platform that helps farmers manage farming activities and access digital agricultural solutions through a user-friendly Laravel web application.
 
 ## Prerequisites
 - PHP >= 8.1
 - Composer
-- MySQL
+- MongoDB
 - Node.js & NPM
 
 ## Installation
@@ -27,9 +27,10 @@ cp .env.example .env
 php artisan key:generate
 
 # Configure database in .env file
+# DB_CONNECTION=mongodb
+# DB_HOST=127.0.0.1
+# DB_PORT=27017
 # DB_DATABASE=efarmar
-# DB_USERNAME=root
-# DB_PASSWORD=yourpassword
 
 # Run migrations & seed
 php artisan migrate --seed
@@ -70,5 +71,5 @@ efarmar/
 ```
 
 ## Default Credentials (after seeding)
-- Email: admin@efarmar.com
-- Password: password
+- Email: admin@gmail.com
+- Password: admin123
